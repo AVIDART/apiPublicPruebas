@@ -13,6 +13,13 @@
                         text
                         type="success"
                     > ACCIÓN EJECUTADA
+                    </v-alert> 
+                    <v-alert v-if="alerta"
+                        shaped
+                        dense
+                        text
+                        type="success"
+                    > Titulo: {{nuevoPost.titulo}} | Descripcion: {{nuevoPost.descripcion}}
                     </v-alert>
                 </v-row>
                 <v-row v-if="mostrar">
@@ -86,7 +93,7 @@ export default {
             alerta:false,
             mostrar:false,
             nuevoPost:{titulo:'', descripcion:''},
-            idEdit:0        
+            idEdit:0,       
         }
     },
     methods: {
