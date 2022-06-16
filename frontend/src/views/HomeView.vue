@@ -25,15 +25,15 @@
                   </v-text-field>
                 </v-col>
                 <v-col cols="12" md="2" class="text-center">
-                    <v-btn @click="getUsers" block color="#0BB88E">USERS</v-btn>
+                    <v-btn @click="getUsers" block color="rgb(144, 235, 212)">USERS</v-btn>
                 </v-col>                 
                 <v-col cols="12" md="2" class="text-center">
-                    <v-btn @click="getPost(id)" block color="#0BB88E">ID</v-btn>                  
+                    <v-btn @click="getPost(id)" block color="rgb(144, 235, 212)">ID</v-btn>                  
                 </v-col>  
               </v-row>
               <v-row>
                 <v-col cols="12" class="text-center">
-                    <v-btn @click="$router.push('posts')" block color="#0BB02E">PUBLICAR UN POST</v-btn>                  
+                    <v-btn @click="$router.push('posts')" block color="rgb(144, 235, 212)">PUBLICAR UN POST</v-btn>                  
                 </v-col>  
               </v-row>
               <v-data-table
