@@ -3,7 +3,7 @@
       <v-container>
         <v-card>
           <v-card-title>
-            POSTS
+            USERS
             <v-spacer></v-spacer>
           </v-card-title>
             <div class="mb-6 pl-2 pr-2">
