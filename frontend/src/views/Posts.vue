@@ -67,9 +67,9 @@
                                 v-for="(post,i) in posts" :key="i"
                             > 
                             <v-chip color="rgb(144, 235, 212)">{{post.id}}</v-chip>
-                            <v-col align=right>                      
+                            <v-col align=right>                    
                                 <v-btn @click="delPost(post.id)" color="rgb(242, 19, 93)">Eliminar</v-btn> |
-                                <v-btn @click="editOne(post.id)" color="rgb(255, 130, 0)">Editar</v-btn>
+                                <v-btn @click="editOne(post.id,post.userId)" color="rgb(255, 130, 0)">Editar</v-btn>
                             </v-col> 
                             <v-expansion-panel-header>
                                 {{post.title}}
@@ -92,7 +92,7 @@ export default {
             posts:[],
             alerta:false,
             mostrar:false,
-            nuevoPost:{titulo:'', descripcion:''},
+            nuevoPost:{titulo:'', descripcion:'',usuarioID:0},
             idEdit:0,       
         }
     },
@@ -136,9 +136,13 @@ export default {
                 console.log(e.response)
             })   
         },
-        editOne(id){
+        editOne(id,useid){
             this.mostrar=true
             this.idEdit=id
+            this.nuevoPost.usuarioID=useid
+        },
+        guardarid(idusuario){
+                console.log(idusuario)
         }      
     },
     created() {
