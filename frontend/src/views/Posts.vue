@@ -54,6 +54,16 @@ export default {
             .catch(e => {
                 console.log(e.response)
             })     
+            },        
+        getPost(id){            
+            this.axios.get(`/posts/${id}`)
+            .then(res => {
+                this.nuevoPost.titulo = res.data.title
+                this.nuevoPost.descripcion = res.data.body
+            })
+            .catch(e => {
+                console.log(e.response)
+            })     
             },
         delPost(id){
             this.axios.delete(`/posts/${id}`)
@@ -89,6 +99,7 @@ export default {
             this.mostrar=true
             this.idEdit=id
             this.nuevoPost.usuarioID=useid
+            this.getPost(this.idEdit)
         },
         mostrarFuntion(mostrar){
                this.mostrar=mostrar

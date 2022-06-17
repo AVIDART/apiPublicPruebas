@@ -5,6 +5,7 @@
             md="4"
         >
             <v-text-field
+            hint="Escriba el titulo nuevo"
             v-model="nuevoPost.titulo"
             :counter="10"
             label="Titulo"
@@ -16,12 +17,12 @@
             cols="12"
             md="4"
         >
-            <v-text-field
+            <v-textarea
+            hint="Escriba la descripción nueva"
             v-model="nuevoPost.descripcion"
-            :counter="10"
             label="Descripcion"
             required
-            ></v-text-field>
+            ></v-textarea>
         </v-col> 
         <v-col
             cols="12"
@@ -40,7 +41,9 @@
 <script>
 export default {
     props:{
-        nuevoPost:Object
+        nuevoPost:Object,
+        defaultTItle:String,
+        defaultDescription:String
     },
     methods: {
         addPost(){
