@@ -12,17 +12,13 @@
               @getUsers="getUsers"
               >
               </users-filter>
-              <v-row>
-                <v-col cols="12" class="text-center">
-                    <v-btn @click="$router.push('posts')" block color="rgb(144, 235, 212)">PUBLICAR UN POST</v-btn>                  
-                </v-col>  
-              </v-row>
-              <v-data-table
-                :search="nombre"
-                itemKey="id"
-                :items="datos"
-                :headers="headers">
-              </v-data-table>
+              <button-public/>
+              <table-users
+              :nombre="nombre"
+              :datos="datos"
+              :headers="headers"
+              >
+              </table-users>
             </div>           
         </v-card>
       </v-container>
@@ -31,10 +27,12 @@
 
 <script>
 import UsersFilter from "../components/UsersFilter.vue"
+import ButtonPublic from "../components/ButtonPublic.vue"
+import TableUsers from "../components/TableUsers.vue"
   export default {
     name: 'Home',
     components: {
-      UsersFilter
+      UsersFilter,ButtonPublic,TableUsers
     },
     data() {
       return {
