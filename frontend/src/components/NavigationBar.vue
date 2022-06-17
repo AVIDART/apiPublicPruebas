@@ -17,6 +17,7 @@
       <v-spacer></v-spacer>
       <v-btn text @click="goToRoute('posts')"> BLOG</v-btn>
       <v-btn text @click="goToRoute('home')"> USERS</v-btn>
+      <v-btn text @click="goToRoute('comments')">COMENTARIOS</v-btn>
     </v-app-bar>
 </template>
 
