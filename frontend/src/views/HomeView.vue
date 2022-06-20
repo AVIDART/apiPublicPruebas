@@ -8,13 +8,14 @@
           </v-card-title>
             <div class="mb-6 pl-2 pr-2">
               <users-filter
+              :selectArray="selectArray"
               @filter="filter"
               @getUsers="getUsers"
+              :nombre="nombre"
               >
               </users-filter>
               <button-public/>
               <table-users
-              :nombre="nombre"
               :datos="datos"
               :headers="headers"
               >
@@ -38,6 +39,8 @@ import TableUsers from "../components/TableUsers.vue"
       return {
         nombre:"l",
         datos:[],
+        newDatos:[],
+        selectArray:[],
         headers:[{
           text:"ID",
           align:"center",
@@ -77,6 +80,7 @@ import TableUsers from "../components/TableUsers.vue"
           .then(res => {
             console.log(res)
             this.datos = res.data
+            this.valueSelectList()
           })
           .catch(e => {
             console.log(e.response)
@@ -84,10 +88,17 @@ import TableUsers from "../components/TableUsers.vue"
       },
       filter(nombre2){
         this.nombre=nombre2
+        this.newDatos = this.datos.filter(post => post.name === this.nombre || post.username === this.nombre || post.address.city === this.nombre)
+        this.datos=this.newDatos
       }     
     },
+    computed:{
+      valueSelectList(){
+        this.datos.forEach(element => this.selectArray.push(element.name))
+      }
+    },
     created() {
-      
+    
     },
   }
 </script>
