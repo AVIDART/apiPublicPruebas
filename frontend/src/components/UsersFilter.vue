@@ -15,10 +15,10 @@
             </v-select> 
         </v-col> 
         <v-col cols="12" md="2">
-            <v-btn @click="filtrar">Filtrar</v-btn> 
+            <v-btn block @click="filtrar">Filtrar</v-btn> 
         </v-col>          
         <v-col cols="12" md="2"> 
-            <v-btn @click="reiniciar">Reiniciar</v-btn> 
+            <v-btn block @click="reiniciar">Reiniciar</v-btn> 
         </v-col>                       
     </v-row>
 </template>
