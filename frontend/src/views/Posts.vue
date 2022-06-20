@@ -10,6 +10,11 @@
                 :nuevoPost="nuevoPost"
                 >
                 </alertas>
+                <v-select
+                :items="selectArray"
+                @input="filterPostUserID"
+                v-model="userIdSelect">
+                </v-select>
                 <agregar-post
                 v-if="mostrar"
                 :nuevoPost="nuevoPost"
@@ -38,6 +43,8 @@ export default {
     },
     data() {
         return {
+            userIdSelect:0,
+            selectArray:['ALL'],
             posts:[],
             alerta:false,
             mostrar:false,
@@ -50,6 +57,7 @@ export default {
             this.axios.get('/posts')
             .then(res => {
                 this.posts = res.data
+                this.valueSelectList()
             })
             .catch(e => {
                 console.log(e.response)
@@ -103,10 +111,23 @@ export default {
         },
         mostrarFuntion(mostrar){
                this.mostrar=mostrar
-        }      
+        },
+        filterPostUserID(){
+            if (this.userIdSelect === 'ALL'){
+                this.getPosts()
+            }
+            else
+                this.posts = this.posts.filter(post => post.userId === this.userIdSelect)
+                this.selectArray.splice(1)
+        }    
     },
     created() {
         this.getPosts()
+    },
+    computed:{
+      valueSelectList(){
+        this.posts.forEach(element => this.selectArray.push(element.userId))
+      }
     },
     
 }

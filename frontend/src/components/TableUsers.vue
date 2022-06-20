@@ -1,15 +1,16 @@
 <template lang="">
     <v-data-table
-    :search="nombre"
+
     itemKey="id"
     :items="datos"
     :headers="headers">
+        <!-- :search="nombre" -->
     </v-data-table>
 </template>
 <script>
 export default {
     props:{
-        nombre:String,
+        // nombre:String,
         datos:Array,
         headers:Array
     }
